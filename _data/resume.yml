@@ -1,122 +1,91 @@
-# 数据格式可以为 yaml(文件以.yml结尾) 或者json(文件以.json结尾)
-# 如果YAML格式的数据请先检查格式是否有误，可选检查工具 http://www.yamllint.com
+# 数据格式为 yaml (文件以 .yml 结尾)
+title: "Han Bufan's Resume"
+lang: "en" 
+name: "Han Bufan"
+jobtitle: "Machine Learning & Data Analytics" 
+photo: "" # 照片可空，不显示
 
-title: "简历标题"
-lang: "zh" #语言设置 zh表示中文 en 表示英语
-name: "你的名字"
-jobtitle: "求职意向" #可空不显示
-photo: "assets/img/photo.jpg" #照片可空，不显示
+contact: 
+  - text: "22300120126@m.fudan.edu.cn"
+    href: 'mailto:22300120126@m.fudan.edu.cn'
+    icon: 'icons/email.svg'
+  - text: "13918565541"
+    href: 'tel:13918565541'
+    icon: 'icons/phone.svg'
+  - text: "kaggle.com/hsiaosuan"
+    href: 'https://www.kaggle.com/hsiaosuan'
+    icon: 'icons/web.svg' 
+    attr: 'target="_blank"'
+  - text: "github.com/hanBufan"
+    href: 'https://github.com/hanBufan/'
+    icon: 'icons/github.svg'
+    attr: 'target="_blank"'
 
-#联系方式
-contact: #联系方式连接等3~5行
-- text: "youremail@example.com" #文本内容
-  href: 'mailto:youremail@example.com' #链接，无链接则空  
-  icon: 'icons/email.svg' #图标 svg文件
-- text: "1234567890"
-  href: 'tel:1234567890'
-  icon: 'icons/phone.svg'
-- text: "your-website.com"
-  href: 'http://your-website.com'
-  icon: 'icons/web.svg'
-- text: "GitHubID"
-  href: 'https://github.com/NewFuture'
-  icon: "icons/github.svg"
-  attr: 'target="_blank"' #新标签页打开
-  # - text: "地址"
-  #   icon: "icons/location.svg"
+main: 
+  - type: education 
+    name: Education 
+    content: 
+      - title: Fudan University
+        duration: "Sep 2022 - Jun 2027"
+        sub: "Bachelor's Degree | English + Physics"
+        detail: "Core Courses: Quantum Mechanics, Electrodynamics, Statistical Physics, Probability Theory and Mathematical Statistics, Advanced Mathematics A.<br>Language Scores: TOEFL 115, GRE 333. Fully capable of all-English academic work and barrier-free communication.<br>Honors & Awards: 2023 & 2024 China Universities Debating Championship (CUDC) National First Prize."
 
-#main下面是主体内容，类别条数不限
-main: #简历主要内容，
-- type: education #类别为ID
-  name: 教育 #显示名称，空则使用type
-  content: #内容基本格式 标题-副标题-日期-详细内容 (都允许空)
-  - title: 大学名称
-    duration: "2011年x月 - 2015年"
-    sub: 地点或学历
-    detail: 专业或者简短说明
-  - title: Your University
-    duration: Aug 2007 - Jun 2011
-    sub: Ut enim ad minim veniam
-    detail: Master Bachelor of Computer Science & Technology.
+  - type: skills
+    name: "Professional Skills"
+    content:
+      - title: Programming Languages
+        items: 
+          - Python
+          - SQL
+      - title: Algorithms & Frameworks
+        summary: "Proficient in PyTorch development; familiar with deep learning model construction, feature engineering, complex time-series forecasting, and model ensembling strategies (hard/soft voting, median blending, etc.)."
+      - title: Engineering & Environment
+        summary: "Proficient in Linux and Git. Experienced in deploying deep learning containers using Docker, managing CUDA dependencies, and optimizing multi-GPU computing environments."
+      - title: Foreign Languages & Communication
+        summary: "TOEFL 115, GRE 333, with excellent all-English academic and professional capabilities. Won the National First Prize in the English Debating Championship. Possess outstanding logical thinking and cross-cultural collaboration skills, capable of efficiently translating complex algorithm models and technical frameworks into intuitive business insights."
+        
 
-- type: skills
-  # name: "技能"
-  content:
-  - title: 编程语言
-    items: #itmems 可以小块的方式显示
-    - 汉语
-    - 语言2
-    - 语言3
-  - title: Skill Group
-    summary: Consectetur, Adipiscing, Elit
+  - type: projects
+    name: Research & Project Experience
+    content:
+      - title: Research on Training Diffusion Language Model (LLaDA) Based on Dependency Syntax Tree Masking
+        duration: "Ongoing" 
+        sub: "Undergraduate Research Project"
+        detail: "Exploring the benefits of linguistic syntactic priors on the pre-training of diffusion language models. Systematically evaluated top-down, bottom-up, and subtree structured masking strategies by controlling variables on a fixed-scale dataset (BabyLM). Independently completed the transformation from underlying data to Hugging Face Datasets, optimized the forward pass and training pipeline, and provided a solid experimental baseline for the effectiveness of linguistic priors."
+      - title: Kaggle Vesuvius Challenge - Ink Detection
+        duration: "Dec 2025 - Feb 2026"
+        sub: "Computer Vision Algorithm Development / Silver Medal (69/1293)"
+        detail: "Constructed 3D semantic segmentation and ink detection models based on PyTorch for large-scale 3D X-ray voxel data to recover hidden text in carbonized ancient scrolls. Overcame feature extraction challenges in low-contrast environments and achieved rapid iteration using an experimental framework accumulated from early projects. Introduced DDP (Distributed Data Parallel) technology for distributed training in a multi-GPU environment, significantly reducing the model convergence cycle."
+      - title: Kaggle NFL Big Data Bowl
+        duration: "Sep 2025 - Dec 2025"
+        sub: "Time Series Algorithm Development / Silver Medal (33/1800)"
+        detail: "Constructed a Spatiotemporal Transformer forecasting model based on PyTorch to analyze complex, high-dimensional spatiotemporal telemetry data in NFL games. Reused and optimized previously accumulated fast-iteration experimental systems to efficiently extract the temporal dependencies of player trajectories and tactical intentions. Significantly improved prediction accuracy through deep mining of historical data and model cross-validation."
+      - title: Kaggle CMI Gesture State Detection
+        duration: "Jun 2025 - Sep 2025"
+        sub: "Core Member / Top 11% (304/2800)"
+        detail: "Independently undertook feature extraction and multi-branch deep learning network construction for IMU/TOF/THM sensor data; personal single submission score reached the bronze medal threshold. Built a fast experimental iteration and tracking pipeline for tabular data from scratch. Innovatively proposed a weight enumeration method integrated into the team's codebase, and significantly improved model robustness combined with SGKF cross-validation and multi-dimensional ensemble inference strategies."
 
-- type: experience
-  name: 经验
-  content:
-  - title: 职位
-    sub: 某某公司
-    duration: "xxxx年xx月 - yyyy年yy月"
-    tags:
-    - 标签
-    summary: 职务或者工作总结(自动折叠)
-    detail: 同时包含 summary和detail在Chrome，Safari(包括IOS)，Android和新版Firefox等会自动折叠，不支持折叠的浏览器和展开后表现一致
-    # open: open
-    #可以设置open默认展开
-  - title: Job Title
-    sub: Your 2nd, Inc.  
-    duration: Apr 2013 - Mar 2016
-    tags: 
-    - tagname
-    summary: Summary your job or work. (Collapse)
-    detail: Details can be collapsed in Chrome Safari, Firefox, Opera and so on. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  - type: experience
+    name: Comprehensive Literacy & Research Experience
+    content:
+      - title: Researcher
+        sub: "Fudan University National Social Science Project: European Sinology"
+        duration: "Full Year 2023"
+        summary: "Participated in a National Social Science Fund project, responsible for the compilation, cross-comparison, and information extraction of massive multilingual literature in Chinese and English."
+        detail: "Independently wrote and published related diplomatic review articles, demonstrating strong academic research capabilities, rigorous logical thinking, and the writing ability to structure complex social science concepts."
+      - title: Vice President
+        sub: "Fudan English Debating Society (FEDS)"
+        duration: "Sep 2023 - Sep 2024"
+        summary: "Responsible for the daily operations of a 100-member society, organizing and judging weekly debate friendlies; primary lecturer for debate skills and logic construction courses."
+        detail: "Operated the society's official WeChat account, managed external promotions and event summaries, enhancing team leadership and cross-cultural public speaking skills."
 
-- type: projects
-  name: Projects
-  content:
-  - title: 项目名称
-    duration: xxxx年xx月 - yyyy年yy月
-    detail: 项目和工作介绍，项目总结.
-    sub: 维护者
-  - title: Project Name
-    summary: Projects' introduction or summary
-    detail:
-      md: _data/demo.md
-    sub: Creator and maintainer.
-   #可继续添加更多内容
+others: 
+  - type: others 
+    name: 'Personal Summary'
+    content: 
+      - text: "A composite background in English and Physics from Fudan University, combining hardcore data technology with excellent communication logic. Proficient in PyTorch and Kaggle competition practical application, excelling in handling complex time-series data and computer vision tasks. Possess outstanding cross-cultural collaboration, literature research, and critical expression skills, capable of efficiently translating algorithmic thinking into quantitative strategies and business insights to drive data product implementation."
 
-#others 其他简略内容(列表)
-others: #其他列表显示
-- type: others #ID可以为空
-  name: '其他'
-  content: #选择需要的格式
-  - 单行文字
-  - title: "加粗:"
-    text: "列表项二"
-  - title: "兴趣:"
-    items: #单行列表
-    - 睡觉
-    - 吃饭
-    - coding
-  - title: 列表
-    list:
-    - 第一项
-    - 第二项
-#- type: 
-#  name: '其他'
-#  content: #选择需要的格式
-#  - 单行文字
-#  - 如果有可以继续添加
-
-#footer 脚注，打印版和web版不同不显示    
-footer: #脚注多组
-  print: #打印版markdown或者html
+footer: 
+  print: 
   screen:
-  - text: "简历脚注"
-  #   href: '/'
-  - text: "Made with &hearts; by NewFuture"
-    href: "https://github.com/NewFuture/CV/"
-
-#页面额外js脚本，如xx统计
-scripts:
-#- src: "assets/js/resume.js"
-#  defer: defer #可以设置defer或者sync异步加载
+    - text: "Made with ❤️"
